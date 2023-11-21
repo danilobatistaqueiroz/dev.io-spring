@@ -28,7 +28,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - /home/element/dados/tutorials/spring/devio-eda/mongo/volume:/data/db
+      - ${PWD}/volume:/data/db
     networks:
       - mongo-compose-network
 
