@@ -48,7 +48,7 @@ public class CarrinhoController extends ControllerBase {
         model.addAttribute("title", "Carrinho");
         model.addAttribute("voucherCodigo", 3842);
         model.addAttribute("valorDesconto", 111);
-        model.addAttribute("carrinho", new Carrinho("NerdUser","nerduser@gmail.com"));
+        model.addAttribute("carrinho", new Carrinho("Devio","nerduser@gmail.com"));
         return "carrinho/index.html";
     }
 

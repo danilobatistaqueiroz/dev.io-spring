@@ -50,7 +50,7 @@ public class VitrineController extends ControllerBase {
         model.addAttribute("produtos", produtosViewModel);
         model.addAttribute("title", "Vitrine");
         model.addAttribute("isSignedIn",true);
-        model.addAttribute("username","Danilo");
+        model.addAttribute("username","Devio");
         return "vitrine/index";
     }
 
@@ -60,7 +60,7 @@ public class VitrineController extends ControllerBase {
         model.addAttribute("produto", produtoViewModel);
         model.addAttribute("title", "Produto Detalhe");
         model.addAttribute("isSignedIn",true);
-        model.addAttribute("username","Danilo");
+        model.addAttribute("username","Devio");
         var carrinhoItem = new CarrinhoItem();
         model.addAttribute("carrinhoItem",carrinhoItem);
         if (operacaoValida()==false) {
