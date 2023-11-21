@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" th:insert="~{shared/layout :: page}">
+  <div th:fragment="content">
+    <h1>Novo Produto</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post" th:action="@{/admin-produtos/novo-produto}" th:object="${produto}">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <select class="form-control" id="categoriaId" th:field="${produto.categoriaId}">
+                      <option th:each="categoria : ${categorias}" th:value="${categoria.codigo}" th:text="${categoria.nome}"></option>
+                    </select>
+                    <span th:if="${#fields.hasErrors('categoriaId')}" th:errors="*{categoriaId}" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input id="nome" class="form-control" th:field="${produto.nome}" placeholder="Nome" />
+                    <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input id="descricao" class="form-control" th:field="${produto.descricao}" placeholder="Descrição" />
+                    <span th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" id="ativo" name="ativo" th:field="${produto.ativo}" th:checked="${produto.ativo}"/> Ativo
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input id="valor" class="form-control" th:field="${produto.valor}" placeholder="Valor" />
+                    <span th:if="${#fields.hasErrors('valor')}" th:errors="*{valor}" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input id="imagem" class="form-control" th:field="${produto.imagem}" placeholder="Imagem" />
+                    <span th:if="${#fields.hasErrors('imagem')}" th:errors="*{imagem}" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input id="quantidadeEstoque" class="form-control" th:field="${produto.quantidadeEstoque}" placeholder="Quantidade em Estoque" />
+                    <span th:if="${#fields.hasErrors('quantidadeEstoque')}" th:errors="*{quantidadeEstoque}" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input id="altura" class="form-control" th:field="${produto.altura}" placeholder="Altura" />
+                    <span th:if="${#fields.hasErrors('altura')}" th:errors="*{altura}" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                     <input id="largura" class="form-control" th:field="${produto.largura}" placeholder="Largura" />
+                    <span th:if="${#fields.hasErrors('largura')}" th:errors="*{largura}" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input id="profundidade" class="form-control" th:field="${produto.profundidade}" placeholder="Profundidade" />
+                    <span th:if="${#fields.hasErrors('profundidade')}" th:errors="*{profundidade}" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Salvar" class="btn btn-primary" />
+                    <a class="btn btn-info" asp-action="Index">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+</html>

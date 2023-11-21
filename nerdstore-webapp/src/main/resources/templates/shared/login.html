@@ -1,0 +1,23 @@
+<ul class="navbar-nav" th:fragment="login">
+
+    <li class="nav-item" th:if="${isSignedIn}">
+        <a  class="nav-link text-dark" th:href="@{/account/manage/index}" title="Manage" th:text="'Hello '+${username}+'!'"></a>
+    </li>
+    <li class="nav-item" th:if="${isSignedIn}">
+        <form  class="form-inline" th:href="@{/account/logout}" >
+            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+        </form>
+    </li>
+
+    <li class="nav-item" th:if="${isSignedIn==false}">
+        <a class="nav-link text-dark" th:href="@{/account/register}">Register</a>
+    </li>
+    <li class="nav-item" th:if="${isSignedIn==false}">
+        <a class="nav-link text-dark" th:href="@{/account/login}">Login</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" th:href="@{/carrinho/index}"><span class="fa fa-shopping-cart"></span></a>
+    </li>
+
+</ul>

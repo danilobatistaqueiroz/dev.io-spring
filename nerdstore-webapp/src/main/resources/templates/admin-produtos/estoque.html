@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" th:insert="~{shared/layout :: page}">
+<div th:fragment="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 item-photo">
+        <img width="400" height="400" th:src="'/images/'+${produto.imagem}" />
+      </div>
+      <div class="col-xs-5" style="border:20px solid white">
+        <h3 th:text="${produto.nome}"></h3>
+
+        <h6 class="title-price"><small>OFERTA</small></h6>
+        <h3 style="margin-top:0px;" th:text="${produto.valor}"></h3>
+
+        <p th:text="'Apenas '+${produto.quantidadeEstoque}+' em estoque!'"></p>
+        <p th:text="${produto.descricao}"></p>
+
+        <div class="section" style="padding-bottom:20px;">
+          <form method="post" th:action="@{/admin-produtos/produtos-atualizar-estoque}" th:object="${produtoEstoque}">
+            <input type="hidden" id="id" name="id" th:value="${produto.produtoId}" />
+            <input type="text" id="quantidade" name="quantidade" th:value="${produto.quantidadeEstoque}" />
+            <button class="btn btn-info">Atualizar Estoque</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" th:insert="~{shared/layout :: page}">
+    <div th:fragment="content">
+        <div th:insert="~{shared/style.html :: style}"></div>
+        <div class="container">
+            <h1>Vitrine de Produtos</h1>
+            <br />
+            <div class="row">
+                <!-- BEGIN PRODUCTS -->
+                <div class="col-md-3 col-sm-6" th:each="produto : ${produtos}">
+                    <span class="thumbnail">
+                        <a th:href="'/vitrine/produto-detalhe/'+${produto.produtoId}"><img width="200" height="200" th:src="'/images/'+${produto.imagem}" /></a>
+                        <h4 th:text="${produto.nome}"></h4>
+                        <p th:text="${'Apenas '+produto.quantidadeEstoque+' em estoque!'}"></p>
+                        <p th:text="${produto.descricao}"></p>
+                        <hr class="line">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <p class="price" th:text="${produto.valor}"></p>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+                <!-- END PRODUCTS -->
+            </div>
+        </div>
+    </div>
+</html>

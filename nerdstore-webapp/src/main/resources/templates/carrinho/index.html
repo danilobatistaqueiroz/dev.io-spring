@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" th:insert="~{shared/layout :: page}">
+<div th:fragment="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-md-offset-1">
+                <table class="table" th:if="${carrinho.items!=null}">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Quantidade</th>
+                            <th class="text-center">Valor</th>
+                            <th class="text-center">Valor Total</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="item : ${carrinho.items}">
+                            <td class="col-sm-5 col-md-5">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><a th:action="@{/vitrine/produto-detalhe/${item.produtoId}}" th:text="${item.produtoNome}"></a></h4>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="col-sm-2 col-md-2" style="text-align: center">
+                                <form method="post" th:action="@{/carrinho/atualizar-item}" th:object="${signupForm}">
+                                    <div th:insert="~{/shared/summary/index.html :: summary}"></div>
+                                    <input type="hidden" id="Id" name="Id" th:value="${item.produtoId}" />
+                                    <div class="row" style="float: left">
+                                        <input style="width: 70px" type="text" class="form-control" name="quantidade" id="quantidade" th:value="${item.quantidade}">
+                                    </div>
+                                    <div class="row" style="float: right">
+                                        <button type="submit" class="btn btn-success">
+                                            <span class="fas fa-sync"></span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </td>
+                            <td class="col-sm-1 col-md-1 text-center"><strong th:text="${item.valorUnitario}"></strong></td>
+                            <td class="col-sm-1 col-md-1 text-center"><strong th:text="${item.valorTotal}"></strong></td>
+
+                            <td class="col-sm-1 col-md-1">
+                                <form method="post" th:action="@{/carrinho/remover-item}">
+                                    <input type="hidden" id="Id" name="Id" th:value="${item.produtoId}" />
+                                    <button type="submit" class="btn btn-danger">
+                                        <span class="fas fa-trash-alt"></span> Remover
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td><h5>Subtotal</h5></td>
+                            <td class="text-right"><h5><strong th:text="${carrinho.subTotal}"></strong></h5></td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td colspan="2">
+                                <form method="post" th:action="@{/carrinho/aplicarVoucher}">
+                                    <div class="row" style="float: left">
+                                        <input placeholder="Voucher" style="width: 150px" type="text" class="form-control" name="VoucherCodigo" id="VoucherCodigo" th:value="${carrinho.voucherCodigo}">
+                                    </div>
+                                    <div class="row" style="float: right">
+                                        <button type="submit" class="btn btn-success">
+                                            <span class="fas fa-sync"></span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </td>
+                            <td><h5>Desconto</h5></td>
+                            <td class="text-right"><h5><strong th:text="${carrinho.valorDesconto}"></strong></h5></td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td>
+                                <h3>Total</h3>
+                            </td>
+                            <td class="text-right">
+                                <h3><strong th:text="${carrinho.valorTotal}"></strong></h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td>
+                                <a th:href="/vitrine/index" class="btn btn-dark">
+                                    <span class="fa fa-shopping-cart"></span>Continuar Compra
+                                </a>
+                            </td>
+                            <td>
+                                <a th:href="/carrinho/resumo-da-compra" class="btn btn-success">
+                                    <span class="fas fa-play"></span><br /> Finalizar Compra
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div th:if="${carrinho.items==null}"><p>Carrinho Vazio</p></div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

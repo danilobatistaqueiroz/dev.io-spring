@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>nerdstore.catalogo</groupId>
+    <artifactId>nerdstore-catalogo</artifactId>
+    <version>1.1</version>
+    <packaging>jar</packaging>
+	<name>nerdstore-catalogo</name>
+	<description>Sistema de catalogo</description>
+
+    <parent>
+        <groupId>nerdstore</groupId>
+        <artifactId>nerdstore</artifactId>
+        <version>1.1</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>nerdstore.core</groupId>
+            <artifactId>nerdstore-core</artifactId>
+            <version>${nerdstore.version}</version>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <nerdstore.version>1.1</nerdstore.version>
+    </properties>
+
+</project>

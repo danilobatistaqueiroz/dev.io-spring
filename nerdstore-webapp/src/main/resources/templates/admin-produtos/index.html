@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" th:insert="~{shared/layout :: page}">
+    <div th:fragment="content">
+        <div th:insert="~{shared/style.html :: style}"></div>
+        <div class="container">
+
+            <h1>Administração de Produtos</h1>
+            <hr />
+            <div class="row">
+                <a th:href="@{/admin-produtos/novo-produto}" class="btn btn-success right">+ Adicionar Novo</a>
+            </div>
+            <hr />
+            <div class="row">
+                <!-- BEGIN PRODUCTS -->
+                <div class="col-md-3 col-sm-6" th:each="produto : ${produtos}">
+                    <span class="thumbnail">
+                        <img width="200" height="200" th:src="'/images/'+${produto.imagem}" />
+                        <h4 th:text="${produto.nome}"></h4>
+                        <p th:text="${produto.quantidadeEstoque}+' em estoque'"></p>
+                        <p th:text="${produto.descricao}"></p>
+                        <p class="price" id="valor" th:text="${produto.valor}"></p>
+                        <hr class="line">
+                        <div class="row">
+                            <a th:href="'/admin-produtos/atualizar-produto/'+${produto.produtoId}" class="btn btn-success right">Editar</a> &nbsp;
+                            <a th:href="'/admin-produtos/produtos-atualizar-estoque/'+${produto.produtoId}" class="btn btn-info right">Estoque</a>
+                        </div>
+                    </span>
+                </div>
+                <!-- END PRODUCTS -->
+            </div>
+        </div>
+    </div>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>nerdstore.vendas</groupId>
+    <artifactId>nerdstore-vendas</artifactId>
+    <version>1.1</version>
+    <packaging>jar</packaging>
+
+    <parent>
+        <groupId>nerdstore</groupId>
+        <artifactId>nerdstore</artifactId>
+        <version>1.1</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>nerdstore.core</groupId>
+            <artifactId>nerdstore-core</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>nerdstore.pagamentos</groupId>
+            <artifactId>nerdstore-pagamentos</artifactId>
+            <version>1.1</version>
+        </dependency>
+    </dependencies>
+
+
+
+</project>
