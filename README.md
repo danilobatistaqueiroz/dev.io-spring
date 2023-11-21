@@ -27,9 +27,9 @@ Escolha: Create Database e digite NerdStoreDb
 Escolha: Create Collection e digite categorias
 
 Escolha: New Document e preencha com:  
-`{ "_id": ObjectID(), "codigo":1, "nome":"Camisetas"}`
+`{ "_id": ObjectID(), "codigo":1, "nome":"Camisetas"}`  
 repita com:  
-`{ "_id": ObjectID(), "codigo":2, "nome":"Canecas"}`
+`{ "_id": ObjectID(), "codigo":2, "nome":"Canecas"}`  
 
 # Compilar os projetos e subir o Spring Web MVC
 
