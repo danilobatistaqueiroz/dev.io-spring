@@ -1,4 +1,8 @@
-# Spring-Boot - MVC - Domain Driven Design - CQRS - Event Driven Architecture
+# Spring-Boot - MVC - Domain Driven Design - CQRS - Event Driven Architecture  
+Projeto utilizando Thymeleaf, Java 17, MongoDB, DDD, EDA
+
+______
+
 
 # Criar Usuário e BD Mongodb 
 
